@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Products.xslt"?>
+<Product>
+<Medicine>
+    <Name>Cetizin</Name>
+    <Price>30</Price>
+    <Availability>No</Availability>
+    <Composition>60 mg</Composition>
+</Medicine>
+<Medicine>
+    <Name>Collimax</Name>
+    <Price>40</Price>
+    <Availability>Yes</Availability>
+    <Composition>200 mg</Composition>
+</Medicine>
+<Medicine>
+    <Name>Sinarest</Name>
+    <Price>50</Price>
+    <Availability>No</Availability>
+    <Composition>150 mg</Composition>
+</Medicine>
+<Medicine>
+    <Name>Crocin</Name>
+    <Price>50</Price>
+    <Availability>Yes</Availability>
+    <Composition>50 mg</Composition>
+</Medicine>
+<Medicine>
+    <Name>Paracetamol</Name>
+    <Price>70</Price>
+    <Availability>Yes</Availability>
+    <Composition>10 mg</Composition>
+</Medicine>
+</Product>

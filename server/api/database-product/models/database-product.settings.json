@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "database_products",
+  "info": {
+    "name": "DatabaseProduct"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Stock": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "float"
+    }
+  }
+}

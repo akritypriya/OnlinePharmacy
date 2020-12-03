@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addusers",
+  "info": {
+    "name": "Adduser",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+body {
+  
+  background-image: url(pictures/abcd.jpg);
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
+}
+</style>
+    <title>Products</title>
+</head>
+
+<script>
+    function checkAuth(){
+        auth = window.localStorage.getItem("auth");
+        logButton = "Login"
+        if(auth === "success"){
+            logButton = "Logout"
+        }
+        document.getElementById("btauth").innerHTML = logButton;
+    }
+    function logout(){
+        auth = window.localStorage.getItem("auth");
+        logButton = "Login"
+        if(auth === "success" && document.getElementById("btauth").innerHTML === "Logout"){
+            window.localStorage.removeItem("auth")
+            window.location.href = "http://127.0.0.1:5500/userlogin.html"
+        }
+        else{
+            window.location.href = "http://127.0.0.1:5500/userlogin.html"
+        }
+    }
+
+    async function renderProducts(){
+        prod = ""
+        await axios.get("http://localhost:1337/products")
+        .then(function(response){
+            var data=response.data
+            data.forEach(d => {
+            var name=d.Name
+            var cost=d.Cost
+            var image=d.Image[0].url
+            console.log(name,cost,image)
+            prod +="<div class='column'><img src= http://localhost:1337"+image+" width='50%'><p style = 'font-weight:bolder'>"+name+"</p><p style = 'font-weight:bolder'>Cost:  &#8377;"+cost+"</p></div>"
+
+            })
+            document.getElementById("prods").innerHTML=prod
+        })
+    }
+
+
+</script>
+
+
+
+<body onload="checkAuth(); renderProducts()">
+    <header>
+        
+        <nav>
+            <ul class="nav_links">
+                <li> <a href="index.html">Home </a></li>
+                <li> <a href="product.html">Products </a></li>
+                <li> <a href="Contacts.html">Contact</a></li>
+                <li> <a href="AboutUs.html">About</a></li>
+            </ul>
+        </nav>
+        <a class="cta"><button id="btauth" onclick="logout()">Login</button></a>
+    </header>
+    <div style="text-align:center; color: gold;"><h1>Our Medi Products</h1></div><br>
+
+    <div class="row" id="prods"></div>
+
+     <footer class="footer-distributed">
+        <div class="footer-left">
+          
+                <p class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="AboutUs.html">About</a>
+                <a href="FAQS.html">Faq</a>
+                <a href="Contacts.html">Contact</a>
+            </p>
+            <p class="footer-company-name">Akrity Priya &copy; 2020</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>AB Street</span> XYZ, India</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 9XXXXXXXX</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">abc@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>About the company</span>
+                    We provide medicines and health care prducts 24/7.
+                </p>
+                <div class="footer-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
